@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  node:
+    build: ./docker/node
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./node:/usr/src/app
+    command: sh -c "cd r-coffret && yarn start"
+    ports:
+      - "3000:3000"
